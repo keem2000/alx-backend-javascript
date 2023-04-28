@@ -1,8 +1,14 @@
+/* eslint-disable radix */
 export default function iterateThroughObject(reportWithIterator) {
-    const employees = [];
-    for (const r of reportWithIterator) {
-	employees.push(r);
-    }
+  let output = '';
 
-    return employees.join(' | ');
+  for (const [index, item] of Object.entries(reportWithIterator)) {
+    output += `${item}`;
+
+    if (parseInt(index) !== reportWithIterator.length - 1) {
+      output += ' | ';
+    }
+  }
+
+  return output;
 }
